@@ -14,11 +14,14 @@ public class Main {
     public static void main(String[] args) {
 
         ToDo todo = new ToDo();
-        Task task = todo.addTask();
+        Task task = todo.createTask();
         todo.addTaskIntoTheList(task);
-        task = todo.addTask();
+        task = todo.createTask();
+        todo.addTaskIntoTheList(task);
+        task = todo.createTask();
         todo.addTaskIntoTheList(task);
         todo.printAllTasks();
+
 
 
 

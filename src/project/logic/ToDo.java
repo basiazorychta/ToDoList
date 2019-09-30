@@ -2,30 +2,45 @@ package project.logic;
 
 
 import project.classes.Task;
+import project.classes.Utility;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class ToDo {
 
-    private ArrayList <Task> toDoList;
+    //private ArrayList <Task> toDoList;
+    private HashMap <String, ArrayList<Task>> taskCalendar;
 
     public ToDo() {
-        toDoList = new ArrayList<>();
-
+        //toDoList = new ArrayList<>();
+        taskCalendar = new HashMap<>();
+    }
+    private ArrayList <Task> getTasksList (String key){
+        return taskCalendar.get(key);
     }
     public void printAllTasks (){
-        for (Task task:toDoList) {
-            System.out.println(task.toString());
+        for (Map.Entry mi : taskCalendar.entrySet()) {
+            ArrayList <Task> toDoList = (ArrayList<Task>) mi.getValue();
+            for (Task task : toDoList) {
+                System.out.println(task.toString());
+            }
+            System.out.println("========");
         }
     }
     public void addTaskIntoTheList (Task task){
-        toDoList.add(task);
+        String key = Utility.generateAKey(task.getDate());
+        ArrayList <Task> toDoList = taskCalendar.get(key);
+        if (toDoList != null){
+            toDoList.add(task);
+        }else {
+            toDoList = new ArrayList<>();
+            toDoList.add(task);
+        }
+        taskCalendar.put(key, toDoList);
     }
 
-    public Task addTask (){
+    public Task createTask (){
         Scanner reader = new Scanner (System.in);
         System.out.println("Task detail:");
 
@@ -33,16 +48,19 @@ public class ToDo {
         String heading = reader.nextLine();
 
         System.out.println("Enter date and time of your task:");
-        Date dateTime = createDateTime();
+        Date dateTime = Utility.createDateTime();
 
         boolean completed = false;
 
         System.out.println("Enter the description of your task:");
         String description = reader.nextLine();
 
-        int id;
+        String key = Utility.generateAKey(dateTime);
 
-        if (toDoList.size()== 0){
+        ArrayList <Task> toDoList = getTasksList(key);
+
+        int id;
+        if (toDoList == null || toDoList.size()== 0){
             id = 1;
         }else {
            Task task = toDoList.get(toDoList.size()-1);
@@ -54,42 +72,6 @@ public class ToDo {
         return task;
     }
 
-    private Date createDateTime () {
 
-        Date date = null;
-
-        Scanner scanner = new Scanner (System.in);
-        System.out.println("Enter year: [example: 2019]");
-        String year = scanner.nextLine();
-
-        System.out.println("Enter month: [between: 01-12]");
-        String month = scanner.nextLine();
-
-        System.out.println("Enter day: [between: 01-31]");
-        String day = scanner.nextLine();
-
-        System.out.println("Enter hour: [between: 00-23]");
-        String hours = scanner.nextLine();
-
-        System.out.println("Enter minute: [between: 00-59]");
-        String minutes = scanner.nextLine();
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        dateFormat.setLenient(false);
-
-        try {
-            date = dateFormat.parse(year + "/" + month + "/" + day + " " + hours + ":" + minutes + ":00");
-
-            Date today = new Date ();
-
-            if (date.before(today)){
-                throw new Exception ("Date should be in future. Invalid date!");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
 
 }
