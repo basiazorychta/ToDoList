@@ -18,8 +18,7 @@ public class Main {
         todo.addTaskIntoTheList(task);
         task = todo.createTask();
         todo.addTaskIntoTheList(task);
-        task = todo.createTask();
-        todo.addTaskIntoTheList(task);
+
         todo.printAllTasks();
 
 

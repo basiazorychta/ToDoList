@@ -4,18 +4,20 @@ import java.util.Date;
 
 public class Task {
 
+    public static String projects [] = {"EDUCATION", "SHOOPING", "HOUSE", "HEALTH", "TRAVELLING"};
+
     private int id;
     private String heading;
     private Date datetime;
     private boolean completed;
-    private String description;
+    private String project;
 
-    public Task(int id, String heading, Date datetime, boolean completed, String description) {
+    public Task(int id, String heading, Date datetime, boolean completed, String project) {
         this.id = id;
         this.heading = heading;
         this.datetime = datetime;
         this.completed = completed;
-        this.description = description;
+        this.project = project;
     }
 
     public int getId() {
@@ -47,21 +49,21 @@ public class Task {
     }
 
     public String getDescription() {
-        return description;
+        return project;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.project = project;
     }
 
     @Override
     public String toString() {
         return "Task{" +
                 "id=" + id +
-                ", \n heading='" + heading + '\'' +
-                ", \n date time=" + datetime +
-                ", \n completed=" + completed +
-                ", \n description='" + description + '\'' +
+                ", \n title = '" + heading + '\'' +
+                ", \n date time = " + datetime +
+                ", \n completed = " + completed +
+                ", \n project = '" + project + '\'' +
                 '}';
     }
 }

@@ -6,12 +6,6 @@ import java.util.Scanner;
 
 public class Utility {
 
-    public static String generateAKey (Date date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String key = dateFormat.format(date);
-
-        return key;
-    }
 
 
     public static Date createDateTime () {
