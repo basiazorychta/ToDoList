@@ -17,7 +17,7 @@ public class ToDo {
     }
     public void printAllTasks (){
         for (Task task:toDoList) {
-            System.out.println(task.toString());
+            System.out.println("\n" + task.toString());
         }
     }
     public void addTaskIntoTheList (Task task){
@@ -36,24 +36,30 @@ public class ToDo {
 
         boolean completed = false;
 
-        System.out.println("Select Project type from the list: 1 - " + (Task.projects.length));
         displayProjectsName();
         String project = chooseProject();
 
-        int id;
-        if (toDoList.size()== 0){
-            id = 1;
-        }else {
-           Task task = toDoList.get(toDoList.size()-1);
-           id = task.getId() + 1;
-        }
+        int id = generateTaskId();
 
         Task task = new Task (id, heading, dateTime, completed, project);
 
         return task;
     }
 
+    private int generateTaskId (){
+
+        int id;
+        if (toDoList.size()== 0){
+            id = 1;
+        }else {
+            Task task = toDoList.get(toDoList.size()-1);
+            id = task.getId() + 1;
+        }
+        return id;
+    }
     private void displayProjectsName (){
+
+        System.out.println("Select Project type from the list: 1 - " + (Task.projects.length));
         for (int i = 0; i < Task.projects.length; i++) {
             System.out.println((i + 1) + " - " + Task.projects [i]);
         }
@@ -70,6 +76,31 @@ public class ToDo {
 
     }
 
+    public boolean removeTask (int taskId){
 
+        boolean answer = false;
+        for (int i = 0; i < toDoList.size(); i++) {
+            if (toDoList.get(i).getId() == taskId){
+                if (toDoList.remove(i) != null){
+                    answer = true;
+                }
+                break;
+            }
+        }
+        return answer;
+    }
+
+    public boolean markTaskAsDone (int taskId){
+
+        boolean answer = false;
+        for (int i = 0; i < toDoList.size() ; i++) {
+            if (toDoList.get(i).getId() == taskId){
+                toDoList.get(i).setCompleted(true);
+                answer = true;
+                break;
+            }
+        }
+        return answer;
+    }
 
 }

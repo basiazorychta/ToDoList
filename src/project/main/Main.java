@@ -18,7 +18,17 @@ public class Main {
         todo.addTaskIntoTheList(task);
         task = todo.createTask();
         todo.addTaskIntoTheList(task);
+        //task = todo.createTask();
+        //todo.addTaskIntoTheList(task);
 
+        todo.printAllTasks();
+
+        System.out.println("\nEnter Task Id to Mark as Done : ");
+        Scanner scanner = new Scanner (System.in);
+        String input = scanner.nextLine();
+        int id = Integer.parseInt(input);
+
+        todo.markTaskAsDone(id);
         todo.printAllTasks();
 
 

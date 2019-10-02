@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Task {
 
-    public static String projects [] = {"EDUCATION", "SHOOPING", "HOUSE", "HEALTH", "TRAVELLING"};
+    public static String projects [] = {"EDUCATION", "SHOPPING", "HOUSE", "HEALTH", "TRAVELLING"};
 
     private int id;
     private String heading;
@@ -48,13 +48,10 @@ public class Task {
         this.completed = completed;
     }
 
-    public String getDescription() {
+    public String getProject() {
         return project;
     }
 
-    public void setDescription(String description) {
-        this.project = project;
-    }
 
     @Override
     public String toString() {
