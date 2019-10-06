@@ -23,12 +23,16 @@ public class Main {
 
         todo.printAllTasks();
 
-        System.out.println("\nEnter Task Id to Mark as Done : ");
+        System.out.println("\nEnter Task Id to Update : ");
         Scanner scanner = new Scanner (System.in);
         String input = scanner.nextLine();
         int id = Integer.parseInt(input);
 
-        todo.markTaskAsDone(id);
+        //todo.markTaskAsDone(id);
+
+
+        todo.updateTask(id);
+
         todo.printAllTasks();
 
 

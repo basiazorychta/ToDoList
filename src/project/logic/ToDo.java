@@ -78,19 +78,22 @@ public class ToDo {
 
     public boolean removeTask (int taskId){
 
+        //toDoList.removeIf(task -> (task.getId() == taskId) );
+        //TODO think about iterator later  when you have time
+
         boolean answer = false;
         for (int i = 0; i < toDoList.size(); i++) {
             if (toDoList.get(i).getId() == taskId){
-                if (toDoList.remove(i) != null){
+                if (toDoList.remove(i) != null)
                     answer = true;
-                }
-                break;
             }
+            break;
         }
         return answer;
     }
 
     public boolean markTaskAsDone (int taskId){
+
 
         boolean answer = false;
         for (int i = 0; i < toDoList.size() ; i++) {
@@ -102,5 +105,43 @@ public class ToDo {
         }
         return answer;
     }
+
+    public boolean updateTask (int taskId){
+
+        boolean answer = false;
+        for (int i = 0; i < toDoList.size() ; i++) {
+            if (toDoList.get(i).getId() == taskId){
+                Task task = toDoList.get(i);
+                task = updateExistingTask(task);
+                toDoList.set(i,task);
+                break;
+            }
+        }
+        return answer;
+    }
+
+    private Task updateExistingTask (Task task){
+
+        Scanner scanner = new Scanner (System.in);
+        System.out.println("Update Task detail:");
+
+        System.out.println("Enter heading to update task:");
+        String heading = scanner.nextLine();
+        task.setHeading(heading);
+
+        System.out.println("Enter date and time to update task:");
+        Date dateTime = Utility.createDateTime();
+        task.setDate(dateTime);
+
+        boolean completed = false;
+        task.setCompleted(completed);
+
+        displayProjectsName();
+        String project = chooseProject();
+        task.setProject(project);
+
+        return task;
+    }
+
 
 }
