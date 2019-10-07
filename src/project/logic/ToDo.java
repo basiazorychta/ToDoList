@@ -4,9 +4,7 @@ package project.logic;
 import project.classes.Task;
 import project.classes.Utility;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class ToDo {
 
@@ -67,13 +65,22 @@ public class ToDo {
 
     private String chooseProject (){
 
-        System.out.println("Choose the number : ");
-        Scanner scanner = new Scanner (System.in);
-        String input = scanner.nextLine();
-        int result = Integer.parseInt(input);
-        return Task.projects[result-1];
-        //cover this code by if statement so it will not crash
+        int result;
 
+        while (true) {
+
+            System.out.println("Choose the number : ");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+
+            result = Integer.parseInt(input);
+
+            if (result > 0 && result <= Task.projects.length){
+                break;
+            }
+            System.out.println(result + " is an invalid input");
+        }
+            return Task.projects[result-1];
     }
 
     public boolean removeTask (int taskId){
@@ -139,6 +146,8 @@ public class ToDo {
         displayProjectsName();
         String project = chooseProject();
         task.setProject(project);
+
+        //Collections.sort(toDoList);
 
         return task;
     }
