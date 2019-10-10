@@ -1,8 +1,21 @@
 package project.classes;
 
+import java.io.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+
+/**
+ * This class is part of the "ToDo List" application.
+ * "ToDo List" is an application which help user to not forget what needs to be done.
+ *
+ * This Utility Class contains different helper methods.
+ * For example: read and write a file, take input from the user and convert the date format.
+ *
+ * @author  Barbara Zorychta
+ * @version 2019.10.10
+ */
 
 public class Utility {
 
@@ -54,5 +67,68 @@ public class Utility {
         return date;
     }
 
-   
+    public static int takeUserInput (String message){
+
+        System.out.println(message);
+        Scanner scanner = new Scanner (System.in);
+        String number = scanner.nextLine();
+        int id = Integer.parseInt(number);
+
+        return id;
+    }
+    public static boolean saveFile (String fileName, ArrayList<Task> taskslist){
+
+        boolean result = false;
+        FileOutputStream outputStream;
+        ObjectOutputStream objectOutputStream;
+
+        try{
+
+            outputStream = new FileOutputStream(fileName);
+            objectOutputStream = new ObjectOutputStream(outputStream);
+
+            for (Task task : taskslist) {
+                objectOutputStream.writeObject(task);
+            }
+            outputStream.close();
+            objectOutputStream.close();
+
+            result = true;
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return result;
+    }
+
+    public static ArrayList<Task> readFile (String fileName) throws IOException {
+
+        ArrayList<Task> taskslist = new ArrayList<>();
+        FileInputStream inputStream = null;
+        ObjectInputStream objectInputStream = null;
+
+        try {
+            inputStream = new FileInputStream(fileName);
+            objectInputStream = new ObjectInputStream(inputStream);
+
+            Object object = null;
+
+            while (true){
+               object = objectInputStream.readObject();
+
+               if (object instanceof Task){
+                   taskslist.add((Task) object);
+               }
+            }
+        }
+        catch (Exception e){
+        }
+        finally {
+            inputStream.close();
+            objectInputStream.close();
+        }
+        return taskslist;
+    }
+
+
 }

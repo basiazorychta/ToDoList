@@ -1,10 +1,22 @@
 package project.classes;
 
+import java.io.Serializable;
+import java.io.SerializablePermission;
 import java.util.Date;
 
-public class Task {
+/**
+ * This class is part of the "ToDo List" application.
+ * "ToDo List" is an application which help user to not forget what needs to be done.
+ *
+ * This class holds information about the User tasks.
+ *
+ * @author  Barbara Zorychta
+ * @version 2019.10.10
+ */
 
-    public static String projects [] = {"EDUCATION", "SHOPPING", "HOUSE", "HEALTH", "TRAVELLING"};
+public class Task implements Serializable {
+
+    public static String projects [] = {"EDUCATION", "SHOPPING", "HOUSE", "HEALTH", "HOBBY"};
 
     private int id;
     private String heading;

@@ -1,42 +1,23 @@
 package project.main;
 
+import java.io.IOException;
 
-import project.classes.Task;
-import project.logic.ToDo;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
+/**
+ * This class is part of the "ToDo List" application.
+ * "ToDo List" is an application which help user to not forget what needs to be done.
+ *
+ * @author  Barbara Zorychta
+ * @version 2019.10.10
+ */
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        ToDo todo = new ToDo();
-        Task task = todo.createTask();
-        todo.addTaskIntoTheList(task);
-        task = todo.createTask();
-        todo.addTaskIntoTheList(task);
-        //task = todo.createTask();
-        //todo.addTaskIntoTheList(task);
+        String fileName = "DataBase/TasksListRecords.obj";
 
-        todo.printAllTasks();
-
-        System.out.println("\nEnter Task Id to Update : ");
-        Scanner scanner = new Scanner (System.in);
-        String input = scanner.nextLine();
-        int id = Integer.parseInt(input);
-
-        //todo.markTaskAsDone(id);
-
-
-        todo.updateTask(id);
-
-        todo.printAllTasks();
-
-
-
+        UserGuide userManual = new UserGuide(fileName);
+        userManual.takeUserInputForMainTasks();
 
     }
 }

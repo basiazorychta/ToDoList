@@ -1,19 +1,41 @@
 package project.logic;
 
-
 import project.classes.Task;
 import project.classes.Utility;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+
+/**
+ * This class is part of the "ToDo List" application.
+ * "ToDo List" is an application which help user to not forget what needs to be done.
+ *
+ * This ToDo Class contains all the functionalities which are required to create a task.
+ *
+ * @author  Barbara Zorychta
+ * @version 2019.10.10
+ */
 
 public class ToDo {
 
     private ArrayList <Task> toDoList;
+    private String fileName;
 
-    public ToDo() {
-        toDoList = new ArrayList<>();
+    public ToDo(String fileName) throws IOException {
+        File file = new File (fileName);
+        this.fileName = fileName;
+
+        if (file.exists()){
+            toDoList = Utility.readFile(fileName);
+        } else {
+            toDoList = new ArrayList<>();
+        }
     }
     public void printAllTasks (){
+        if (toDoList.size() == 0){
+            System.out.println("Task List is empty....\n");
+        }
         for (Task task:toDoList) {
             System.out.println("\n" + task.toString());
         }
@@ -85,16 +107,14 @@ public class ToDo {
 
     public boolean removeTask (int taskId){
 
-        //toDoList.removeIf(task -> (task.getId() == taskId) );
-        //TODO think about iterator later  when you have time
-
         boolean answer = false;
         for (int i = 0; i < toDoList.size(); i++) {
-            if (toDoList.get(i).getId() == taskId){
-                if (toDoList.remove(i) != null)
+            if (toDoList.get(i).getId() == taskId) {
+                if (toDoList.remove(i) != null) {
                     answer = true;
+                }
+                break;
             }
-            break;
         }
         return answer;
     }
@@ -147,10 +167,28 @@ public class ToDo {
         String project = chooseProject();
         task.setProject(project);
 
-        //Collections.sort(toDoList);
-
         return task;
     }
+    public void saveFile (){
+        Utility.saveFile(fileName,toDoList);
+    }
+    public int getTaskCount (){
+        return toDoList.size();
+    }
+    public int getCountOfCompletedTasks () {
 
+        int count = 0;
 
+        for (int i = 0; i < toDoList.size(); i++) {
+
+            Task task = toDoList.get(i);
+            if (task.isCompleted()) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getCountOfRemainingTasks (){
+       return getTaskCount() - getCountOfCompletedTasks();
+    }
 }
