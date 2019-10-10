@@ -19,9 +19,9 @@ The user can also quit and save the current task list to file, and then restart 
 ## The User Guide is working according to:
 =================
 
-###Welcome to ToDoLy**
+**Welcome to ToDoLy**
 -------------
-###You have X tasks todo and Y tasks are done!**
+**You have X tasks todo and Y tasks are done!**
 -------------
 
 **Pick an option:**
