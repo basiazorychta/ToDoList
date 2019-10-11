@@ -21,14 +21,19 @@ The user can also quit and save the current task list to file, and then restart 
 
 **Welcome to ToDoLy**
 -------------
+
 ```
 You have X tasks todo and Y tasks are done!
 
 Pick an option:
-+ (1) Show Task List (by date or project)
-+ (2) Add New Task
-+ (3) Edit Task (update, mark as done, remove)
-+ (4) Save and Quit
+(1) Show Task List (by date or project)
+(2) Add New Task
+(3) Edit Task (update, mark as done, remove):
+     (1) Update Task
+     (2) Mark Task As Done
+     (3) Remove Task
+     (4) Back to Main Menu
+(4) Save and Quit
 ```
 
 
