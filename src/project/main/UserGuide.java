@@ -18,10 +18,11 @@ import java.io.IOException;
 
 public class UserGuide {
 
-    public static final int SHOW_TASK_LIST = 1;
-    public static final int ADD_NEW_TASK = 2;
-    public static final int EDIT_TASK = 3;
-    public static final int SAVE_AND_QUIT = 4;
+    public static final int SHOW_TASK_LIST_BY_DATE = 1;
+    public static final int SHOW_TASK_LIST_BY_PROJECT = 2;
+    public static final int ADD_NEW_TASK = 3;
+    public static final int EDIT_TASK = 4;
+    public static final int SAVE_AND_QUIT = 5;
 
     public static final int UPDATE_TASK = 1;
     public static final int MARK_AS_DONE = 2;
@@ -38,7 +39,8 @@ public class UserGuide {
         System.out.println("\nWelcome to ToDoLy\n" +
                 "You have "+ todo.getCountOfRemainingTasks() +" tasks todo and "+todo.getCountOfCompletedTasks()+" tasks are done!\n" +
                 "Pick an option:\n" +
-                "("+SHOW_TASK_LIST+") Show Task List (by date or project)\n" +
+                "("+SHOW_TASK_LIST_BY_DATE+") Show Task List by date\n" +
+                "("+SHOW_TASK_LIST_BY_PROJECT+") Show Task List by project\n" +
                 "("+ADD_NEW_TASK+") Add New Task\n" +
                 "("+EDIT_TASK+") Edit Task (update, mark as done, remove)\n" +
                 "("+SAVE_AND_QUIT+") Save and Quit\n");
@@ -52,7 +54,7 @@ public class UserGuide {
             showMainManu();
             input = Utility.takeUserInput("Choose the number : ");
 
-            if (input >= SHOW_TASK_LIST && input <= SAVE_AND_QUIT) {
+            if (input >= SHOW_TASK_LIST_BY_DATE && input <= SAVE_AND_QUIT) {
 
                 selectOption(input);
                 if (input == SAVE_AND_QUIT){
@@ -69,8 +71,11 @@ public class UserGuide {
 
         switch (input) {
 
-            case SHOW_TASK_LIST :
-                todo.printAllTasks();
+            case SHOW_TASK_LIST_BY_DATE :
+                todo.printAllTasksByDate();
+                break;
+            case SHOW_TASK_LIST_BY_PROJECT :
+                todo.printAllTasksByProject();
                 break;
             case ADD_NEW_TASK:
                 todo.addTaskIntoTheList(todo.createTask());
@@ -113,7 +118,7 @@ public class UserGuide {
 
     private void selectEditOption (int input){
 
-        todo.printAllTasks();
+        todo.printAllTasksByProject();
 
         switch (input) {
             case UPDATE_TASK :

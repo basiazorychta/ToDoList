@@ -26,14 +26,15 @@ The user can also quit and save the current task list to file, and then restart 
 You have X tasks todo and Y tasks are done!
 
 Pick an option:
-(1) Show Task List (by date or project)
-(2) Add New Task
-(3) Edit Task (update, mark as done, remove):
+(1) Show Task List by date
+(2) Show Task List by project
+(3) Add New Task
+(4) Edit Task (update, mark as done, remove):
      (1) Update Task
      (2) Mark Task As Done
      (3) Remove Task
      (4) Back to Main Menu
-(4) Save and Quit
+(5) Save and Quit
 ```
 
 

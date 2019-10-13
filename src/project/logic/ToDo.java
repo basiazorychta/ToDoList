@@ -32,14 +32,33 @@ public class ToDo {
             toDoList = new ArrayList<>();
         }
     }
-    public void printAllTasks (){
+
+
+    public void printAllTasksByProject (){
         if (toDoList.size() == 0){
             System.out.println("Task List is empty....\n");
         }
-        for (Task task:toDoList) {
+        ArrayList <Task> tempraryList = toDoList;
+        Collections.sort(tempraryList, Utility.NameComparator);
+
+        for (Task task:tempraryList) {
             System.out.println("\n" + task.toString());
         }
     }
+
+    public void printAllTasksByDate() {
+        if (toDoList.size() == 0){
+            System.out.println("Task List is empty....\n");
+        }
+        ArrayList <Task> tempraryList = toDoList;
+        Collections.sort(tempraryList, Utility.DateComparator);
+
+        for (Task task:tempraryList) {
+            System.out.println("\n" + task.toString());
+        }
+    }
+
+
     public void addTaskIntoTheList (Task task){
         toDoList.add(task);
     }

@@ -2,6 +2,7 @@ package project.classes;
 
 import java.io.Serializable;
 import java.io.SerializablePermission;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -69,12 +70,16 @@ public class Task implements Serializable {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", \n title = '" + heading + '\'' +
-                ", \n date time = " + datetime +
-                ", \n completed = " + completed +
-                ", \n project = '" + project + '\'' +
-                '}';
+        String taskId = "Task ID : " + id + "\n";
+        String projectName = "Project : " + project + "\n";
+        String taskTitle = "Title : " + heading + "\n";
+
+        String pattern = "dd-MM-yyyy HH:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String taskDate = "Due date : " + simpleDateFormat.format (datetime) + "\n";
+
+        String completed = "Status : " + (isCompleted() ? "completed" : "in progress") + "\n";
+
+        return taskId + projectName + taskTitle + completed + taskDate;
     }
 }

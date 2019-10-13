@@ -3,6 +3,7 @@ package project.classes;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -76,7 +77,11 @@ public class Utility {
 
         return id;
     }
-    public static boolean saveFile (String fileName, ArrayList<Task> taskslist){
+
+    /**
+     * This program opens a binary file and writes the contents of an array list to the file
+     */
+        public static boolean saveFile (String fileName, ArrayList<Task> taskslist){
 
         boolean result = false;
         FileOutputStream outputStream;
@@ -100,6 +105,10 @@ public class Utility {
         }
         return result;
     }
+
+    /**
+     * This program opens a binary file, reads and displays the contents of an array.
+     */
 
     public static ArrayList<Task> readFile (String fileName) throws IOException {
 
@@ -129,6 +138,25 @@ public class Utility {
         }
         return taskslist;
     }
+    public static Comparator<Task> NameComparator = new Comparator<Task>() {
 
+        @Override
+        public int compare(Task task1, Task task2) {
+            String project1 = task1.getProject();
+            String project2 = task2.getProject();
 
+            return project1.compareTo(project2);
+        }
+    };
+
+    public static Comparator<Task> DateComparator = new Comparator<Task>() {
+
+        @Override
+        public int compare(Task task1, Task task2) {
+            Date date1 = task1.getDate();
+            Date date2 = task2.getDate();
+
+            return date1.compareTo(date2);
+        }
+    };
 }
