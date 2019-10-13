@@ -35,10 +35,12 @@ public class ToDo {
 
 
     public void printAllTasksByProject (){
+
         if (toDoList.size() == 0){
             System.out.println("Task List is empty....\n");
         }
-        ArrayList <Task> tempraryList = toDoList;
+        ArrayList <Task> tempraryList = new ArrayList<>(toDoList);
+
         Collections.sort(tempraryList, Utility.NameComparator);
 
         for (Task task:tempraryList) {
@@ -50,14 +52,15 @@ public class ToDo {
         if (toDoList.size() == 0){
             System.out.println("Task List is empty....\n");
         }
-        ArrayList <Task> tempraryList = toDoList;
+
+        ArrayList <Task> tempraryList = new ArrayList<>(toDoList);
+
         Collections.sort(tempraryList, Utility.DateComparator);
 
         for (Task task:tempraryList) {
             System.out.println("\n" + task.toString());
         }
     }
-
 
     public void addTaskIntoTheList (Task task){
         toDoList.add(task);
@@ -71,11 +74,13 @@ public class ToDo {
         String heading = reader.nextLine();
 
         System.out.println("Enter date and time of your task:");
-        Date dateTime = Utility.createDateTime();
+
+        Date dateTime = Utility.getDateAndTime();
 
         boolean completed = false;
 
         displayProjectsName();
+
         String project = chooseProject();
 
         int id = generateTaskId();
@@ -176,7 +181,7 @@ public class ToDo {
         task.setHeading(heading);
 
         System.out.println("Enter date and time to update task:");
-        Date dateTime = Utility.createDateTime();
+        Date dateTime = Utility.getDateAndTime();
         task.setDate(dateTime);
 
         boolean completed = false;

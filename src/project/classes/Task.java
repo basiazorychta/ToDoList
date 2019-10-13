@@ -9,7 +9,7 @@ import java.util.Date;
  * This class is part of the "ToDo List" application.
  * "ToDo List" is an application which help user to not forget what needs to be done.
  *
- * This class holds information about the User tasks.
+ * This class holds information about the User task.
  *
  * @author  Barbara Zorychta
  * @version 2019.10.10
