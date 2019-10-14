@@ -48,14 +48,13 @@ public class ToDo {
 
         if (toDoList.size() == 0){
             System.out.println("Task List is empty....\n");
+            return;
         }
-        ArrayList <Task> tempraryList = new ArrayList<>(toDoList);
+        ArrayList <Task> temporaryList = new ArrayList<>(toDoList);
 
-        Collections.sort(tempraryList, Utility.NameComparator);
+        Collections.sort(temporaryList, Utility.NameComparator);
 
-        for (Task task:tempraryList) {
-            System.out.println("\n" + task.toString());
-        }
+        temporaryList.stream().forEach(System.out::println);
     }
 
     /**
@@ -64,15 +63,14 @@ public class ToDo {
     public void printAllTasksByDate() {
         if (toDoList.size() == 0){
             System.out.println("Task List is empty....\n");
+            return;
         }
 
-        ArrayList <Task> tempraryList = new ArrayList<>(toDoList);
+        ArrayList <Task> temporaryList = new ArrayList<>(toDoList);
 
-        Collections.sort(tempraryList, Utility.DateComparator);
+        Collections.sort(temporaryList, Utility.DateComparator);
 
-        for (Task task:tempraryList) {
-            System.out.println("\n" + task.toString());
-        }
+        temporaryList.stream().forEach(System.out::println);
     }
 
     public void addTaskIntoTheList (Task task){
