@@ -6,6 +6,7 @@ import project.classes.Utility;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * This class is part of the "ToDo List" application.
@@ -166,14 +167,9 @@ public class ToDo {
     public boolean removeTask (int taskId){
 
         boolean answer = false;
-        for (int i = 0; i < toDoList.size(); i++) {
-            if (toDoList.get(i).getId() == taskId) {
-                if (toDoList.remove(i) != null) {
-                    answer = true;
-                }
-                break;
-            }
-        }
+
+        answer = toDoList.removeIf(task -> (task.getId() == taskId) );
+
         return answer;
     }
 
@@ -184,8 +180,8 @@ public class ToDo {
      */
     public boolean markTaskAsDone (int taskId){
 
-
         boolean answer = false;
+
         for (int i = 0; i < toDoList.size() ; i++) {
             if (toDoList.get(i).getId() == taskId){
                 toDoList.get(i).setCompleted(true);
@@ -204,6 +200,7 @@ public class ToDo {
     public boolean updateTask (int taskId){
 
         boolean answer = false;
+
         for (int i = 0; i < toDoList.size() ; i++) {
             if (toDoList.get(i).getId() == taskId){
                 Task task = toDoList.get(i);
@@ -255,17 +252,13 @@ public class ToDo {
      * This method returns the count of completed tasks
      * @return int
      */
-    public int getCountOfCompletedTasks () {
+    public long getCountOfCompletedTasks () {
 
-        int count = 0;
+        long count = 0;
 
-        for (int i = 0; i < toDoList.size(); i++) {
+        Stream s = toDoList.stream().filter(task -> task.isCompleted());
+        count = s.count();
 
-            Task task = toDoList.get(i);
-            if (task.isCompleted()) {
-                count++;
-            }
-        }
         return count;
     }
 
@@ -273,7 +266,7 @@ public class ToDo {
      * This method returns the count of remaining tasks
      * @return int
      */
-    public int getCountOfRemainingTasks (){
+    public long getCountOfRemainingTasks (){
        return getTaskCount() - getCountOfCompletedTasks();
     }
 }
