@@ -20,7 +20,15 @@ import java.util.Scanner;
 
 public class Utility {
 
-
+    /**
+     * This method creates the date object.
+     * @param year
+     * @param month
+     * @param day
+     * @param hours
+     * @param minutes
+     * @return Date
+     */
     public static Date createDateTime (String year, String month, String day, String hours, String minutes) {
 
         Date date = null;
@@ -46,6 +54,10 @@ public class Utility {
         return date;
     }
 
+    /**
+     * This method takes input from the user to create a date object.
+     * @return Date
+     */
     public static Date getDateAndTime () {
 
         Date date = null;
@@ -102,7 +114,10 @@ public class Utility {
     }
 
     /**
-     * This program opens a binary file and writes the contents of an array list to the file
+     * This method creates a binary file and writes the contents of an Array list to the file
+     * @param fileName
+     * @param taskslist
+     * @return boolean
      */
         public static boolean saveFile (String fileName, ArrayList<Task> taskslist){
 
@@ -130,9 +145,11 @@ public class Utility {
     }
 
     /**
-     * This program opens a binary file, reads and displays the contents of an array.
+     * This method opens a binary file, reads it and loads the file contents to the Array List.
+     * @param fileName
+     * @return ArrayList
+     * @throws IOException
      */
-
     public static ArrayList<Task> readFile (String fileName) throws IOException {
 
         ArrayList<Task> taskslist = new ArrayList<>();
@@ -161,6 +178,10 @@ public class Utility {
         }
         return taskslist;
     }
+
+    /**
+     * Helper function to sort the list by project name
+     */
     public static Comparator<Task> NameComparator = new Comparator<Task>() {
 
         @Override
@@ -172,6 +193,9 @@ public class Utility {
         }
     };
 
+    /**
+     * Helper function to sort the list by task date
+     */
     public static Comparator<Task> DateComparator = new Comparator<Task>() {
 
         @Override

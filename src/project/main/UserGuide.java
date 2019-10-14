@@ -35,6 +35,9 @@ public class UserGuide {
        todo = new ToDo(fileName);
     }
 
+    /**
+     * Display Main Menu
+     */
     private void showMainManu(){
         System.out.println("\nWelcome to ToDoLy\n" +
                 "You have "+ todo.getCountOfRemainingTasks() +" tasks todo and "+todo.getCountOfCompletedTasks()+" tasks are done!\n" +
@@ -46,6 +49,9 @@ public class UserGuide {
                 "("+SAVE_AND_QUIT+") Save and Quit\n");
     }
 
+    /**
+     * This method takes input from user to select option from main menu
+     */
     public void takeUserInputForMainTasks() {
 
         int input;
@@ -66,6 +72,7 @@ public class UserGuide {
             }
         }
     }
+
 
     private void selectOption (int input){
 
@@ -91,6 +98,9 @@ public class UserGuide {
         }
     }
 
+    /**
+     * Display Sub Menu
+     */
     private void showSubMenu(){
         System.out.println("("+UPDATE_TASK+") Update Task \n" +
                 "("+MARK_AS_DONE+") Mark As Done Task \n" +
@@ -98,6 +108,9 @@ public class UserGuide {
                 "("+BACK_TO_MAIN_MENU+") Back to Main Menu");
     }
 
+    /**
+     * This method takes input from user to select option from sub menu
+     */
     private void takeUserInputForEditTasks() {
 
         int result;

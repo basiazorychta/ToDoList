@@ -22,6 +22,13 @@ public class ToDo {
     private ArrayList <Task> toDoList;
     private String fileName;
 
+    /**
+     * Constructor takes source fileName as a parameter. If file exists it loads the records and insert it
+     * into ToDoList. If file does not exist it creates a new ToDoList.
+     *
+     * @param fileName
+     * @throws IOException
+     */
     public ToDo(String fileName) throws IOException {
         File file = new File (fileName);
         this.fileName = fileName;
@@ -34,6 +41,9 @@ public class ToDo {
     }
 
 
+    /**
+     * Prints tasks list by projects
+     */
     public void printAllTasksByProject (){
 
         if (toDoList.size() == 0){
@@ -48,6 +58,9 @@ public class ToDo {
         }
     }
 
+    /**
+     * Prints tasks list by date
+     */
     public void printAllTasksByDate() {
         if (toDoList.size() == 0){
             System.out.println("Task List is empty....\n");
@@ -66,6 +79,10 @@ public class ToDo {
         toDoList.add(task);
     }
 
+    /**
+     * This method takes input from the user and create a task
+     * @return Task
+     */
     public Task createTask (){
         Scanner reader = new Scanner (System.in);
         System.out.println("Task detail:");
@@ -90,6 +107,11 @@ public class ToDo {
         return task;
     }
 
+    /**
+     * This method get the last task element of the list, reads the task id and generate a new id
+     * for next task. If the list is empty the task id starts from #1
+     * @return int
+     */
     private int generateTaskId (){
 
         int id;
@@ -101,6 +123,10 @@ public class ToDo {
         }
         return id;
     }
+
+    /**
+     * Displays the available projects
+     */
     private void displayProjectsName (){
 
         System.out.println("Select Project type from the list: 1 - " + (Task.projects.length));
@@ -109,6 +135,11 @@ public class ToDo {
         }
     }
 
+    /**
+     * This method allows user to choose the available projects from the list.
+     * If input is incorrect it shows the error message and display the list again.
+     * @return String
+     */
     private String chooseProject (){
 
         int result;
@@ -129,6 +160,11 @@ public class ToDo {
             return Task.projects[result-1];
     }
 
+    /**
+     * Removes task from the list
+     * @param taskId
+     * @return boolean
+     */
     public boolean removeTask (int taskId){
 
         boolean answer = false;
@@ -143,6 +179,11 @@ public class ToDo {
         return answer;
     }
 
+    /**
+     * Updates the task as done.
+     * @param taskId
+     * @return boolean
+     */
     public boolean markTaskAsDone (int taskId){
 
 
@@ -157,6 +198,11 @@ public class ToDo {
         return answer;
     }
 
+    /**
+     * Updates the entire task
+     * @param taskId
+     * @return boolean
+     */
     public boolean updateTask (int taskId){
 
         boolean answer = false;
@@ -171,6 +217,11 @@ public class ToDo {
         return answer;
     }
 
+    /**
+     * This method takes the input from the user to update the existing task
+     * @param task
+     * @return Task
+     */
     private Task updateExistingTask (Task task){
 
         Scanner scanner = new Scanner (System.in);
@@ -193,12 +244,19 @@ public class ToDo {
 
         return task;
     }
+
     public void saveFile (){
         Utility.saveFile(fileName,toDoList);
     }
+
     public int getTaskCount (){
         return toDoList.size();
     }
+
+    /**
+     * This method returns the count of completed tasks
+     * @return int
+     */
     public int getCountOfCompletedTasks () {
 
         int count = 0;
@@ -212,6 +270,11 @@ public class ToDo {
         }
         return count;
     }
+
+    /**
+     * This method returns the count of remaining tasks
+     * @return int
+     */
     public int getCountOfRemainingTasks (){
        return getTaskCount() - getCountOfCompletedTasks();
     }
