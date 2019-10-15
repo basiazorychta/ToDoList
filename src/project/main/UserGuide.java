@@ -18,6 +18,9 @@ import java.io.IOException;
 
 public class UserGuide {
 
+    /**
+     * Creating final int helps to use same value in every part of the project.
+     */
     public static final int SHOW_TASK_LIST_BY_DATE = 1;
     public static final int SHOW_TASK_LIST_BY_PROJECT = 2;
     public static final int ADD_NEW_TASK = 3;
@@ -31,12 +34,18 @@ public class UserGuide {
 
     private ToDo todo;
 
+    /**
+     * Constructor
+     * @param fileName
+     * @throws IOException
+     */
     public UserGuide(String fileName) throws IOException {
        todo = new ToDo(fileName);
     }
 
     /**
-     * Display Main Menu
+     * Display Main Menu.
+     * User by choosing the # choose specific action
      */
     private void showMainManu(){
         System.out.println("\nWelcome to ToDoLy\n" +
@@ -51,6 +60,8 @@ public class UserGuide {
 
     /**
      * This method takes input from user to select option from main menu
+     * User choose # only from SHOW_TASK_BY_DATE till SAVE_AND_QUIT
+     * User gets error message if # is invalid
      */
     public void takeUserInputForMainTasks() {
 
@@ -74,6 +85,11 @@ public class UserGuide {
     }
 
 
+    /**
+     * Method helps user to choose only specific part of Main Menu by adding the #
+     * User is receiving error message if # is not correct
+     * @param input
+     */
     private void selectOption (int input){
 
         switch (input) {
@@ -100,6 +116,7 @@ public class UserGuide {
 
     /**
      * Display Sub Menu
+     * User can choose the specific activity
      */
     private void showSubMenu(){
         System.out.println("("+UPDATE_TASK+") Update Task \n" +
@@ -110,6 +127,8 @@ public class UserGuide {
 
     /**
      * This method takes input from user to select option from sub menu
+     * User choose # only from UPDATE_TASK till BACK_TO_MAIN_MENU
+     * User gets error message if # is invalid.
      */
     private void takeUserInputForEditTasks() {
 
@@ -129,6 +148,11 @@ public class UserGuide {
         }
     }
 
+    /**
+     * Method helps user to choose only specific part of Sub Menu by adding the #
+     * User is receiving error message if # is not correct
+     * @param input
+     */
     private void selectEditOption (int input){
 
         todo.printAllTasksByProject();

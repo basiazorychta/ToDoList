@@ -22,6 +22,8 @@ public class Utility {
 
     /**
      * This method creates the date object.
+     * User is not able to add date before current day.
+     * If date before today will be added, user will receive an error message
      * @param year
      * @param month
      * @param day
@@ -56,6 +58,7 @@ public class Utility {
 
     /**
      * This method takes input from the user to create a date object.
+     * If date or time is in invalid format, user will receive an error message
      * @return Date
      */
     public static Date getDateAndTime () {
@@ -92,6 +95,12 @@ public class Utility {
         return date;
     }
 
+    /**
+     * This method takes input as Integer.
+     * If input is other than Integer user will receive an error message
+     * @param message
+     * @return id
+     */
     public static int takeUserInput (String message){
 
         int id = 0;
@@ -114,7 +123,8 @@ public class Utility {
     }
 
     /**
-     * This method creates a binary file and writes the contents of an Array list to the file
+     * This method creates a binary file and writes the contents of an Array list to the file.
+     * If file is saved successfully the method will return true otherwise false
      * @param fileName
      * @param taskslist
      * @return boolean
@@ -145,7 +155,7 @@ public class Utility {
     }
 
     /**
-     * This method opens a binary file, reads it and loads the file contents to the Array List.
+     * This method opens a binary file, reads it and loads the file contents to the Array List and returns the list
      * @param fileName
      * @return ArrayList
      * @throws IOException
