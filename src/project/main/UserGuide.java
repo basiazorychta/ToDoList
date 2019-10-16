@@ -27,6 +27,9 @@ public class UserGuide {
     public static final int EDIT_TASK = 4;
     public static final int SAVE_AND_QUIT = 5;
 
+    public static final int STARTING_POINT = 1;
+    public static final int ENDING_POINT = 5;
+
     public static final int UPDATE_TASK = 1;
     public static final int MARK_AS_DONE = 2;
     public static final int REMOVE_TASK = 3;
@@ -71,7 +74,7 @@ public class UserGuide {
             showMainManu();
             input = Utility.takeUserInput("Choose the number : ");
 
-            if (input >= SHOW_TASK_LIST_BY_DATE && input <= SAVE_AND_QUIT) {
+            if (input >= STARTING_POINT && input <= ENDING_POINT) {
 
                 selectOption(input);
                 if (input == SAVE_AND_QUIT){
@@ -138,7 +141,7 @@ public class UserGuide {
             showSubMenu();
             result = Utility.takeUserInput("Choose the number : ");
 
-            if (result >= UPDATE_TASK && result <= BACK_TO_MAIN_MENU) {
+            if (result >= STARTING_POINT && result <= BACK_TO_MAIN_MENU) {
                 break;
             }
             System.out.println(result + " is an invalid input");

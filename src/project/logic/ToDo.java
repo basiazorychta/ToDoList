@@ -151,11 +151,11 @@ public class ToDo {
     private String chooseProject (){
 
         int result;
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
 
             System.out.println("Choose the number : ");
-            Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
 
             result = Integer.parseInt(input);
