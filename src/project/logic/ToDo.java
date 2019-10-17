@@ -81,7 +81,10 @@ public class ToDo {
      * @param task
      */
     public void addTaskIntoTheList (Task task){
-        toDoList.add(task);
+        if (toDoList.add(task)){
+            System.out.println("Task added successfully....\n");
+            System.out.println(task.toString());
+        }
     }
 
     /**
