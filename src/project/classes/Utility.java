@@ -129,7 +129,7 @@ public class Utility {
      * @param taskslist
      * @return boolean
      */
-        public static boolean saveFile (String fileName, ArrayList<Task> taskslist){
+    public static boolean saveFile (String fileName, ArrayList<Task> taskslist){
 
         boolean result = false;
         FileOutputStream outputStream;
@@ -179,11 +179,11 @@ public class Utility {
             Object object = null;
 
             while (true){
-               object = objectInputStream.readObject();
+                object = objectInputStream.readObject();
 
-               if (object instanceof Task){
-                   taskslist.add((Task) object);
-               }
+                if (object instanceof Task){
+                    taskslist.add((Task) object);
+                }
             }
         }
         catch (Exception e){
