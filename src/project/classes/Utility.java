@@ -163,6 +163,12 @@ public class Utility {
     public static ArrayList<Task> readFile (String fileName) throws IOException {
 
         ArrayList<Task> taskslist = new ArrayList<>();
+
+        File file = new File (fileName);
+
+        if (!file.exists()){
+            return taskslist;
+        }
         FileInputStream inputStream = null;
         ObjectInputStream objectInputStream = null;
 
@@ -183,8 +189,11 @@ public class Utility {
         catch (Exception e){
         }
         finally {
-            inputStream.close();
-            objectInputStream.close();
+            if(inputStream != null)
+                inputStream.close();
+
+            if(objectInputStream != null)
+                objectInputStream.close();
         }
         return taskslist;
     }

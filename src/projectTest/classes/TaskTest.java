@@ -27,6 +27,11 @@ class TaskTest {
         assertEquals(false, task.isCompleted());
         assertEquals("TRAVELLING", task.getProject());
 
+        assertNotEquals(-1,task.getId());
+        assertNotEquals("Patient", task.getHeading());
+        assertNotEquals(true, task.isCompleted());
+        assertNotEquals("TRAVELING", task.getProject());
+
     }
 
 }
