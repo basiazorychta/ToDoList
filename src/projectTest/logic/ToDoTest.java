@@ -111,6 +111,9 @@ class ToDoTest {
     @Test
     void generateTaskIdk() throws IOException {
 
+        throw new UnsupportedOperationException("following test case is for public method");
+
+        /*
         ToDo todo = new ToDo("DataBase_Test/File.txt");
 
         Date date = new Date();
@@ -132,6 +135,6 @@ class ToDoTest {
         expectedId = 21;
         actualId = todo.generateTaskId();
         assertEquals(expectedId, actualId);
-
+*/
     }
 }
