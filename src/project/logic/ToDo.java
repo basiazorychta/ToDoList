@@ -121,7 +121,7 @@ public class ToDo {
      * If the list is empty the task id starts from #1
      * @return int
      */
-    private int generateTaskId (){
+    public int generateTaskId (){
 
         int id;
         if (toDoList.size()== 0){
