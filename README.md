@@ -51,9 +51,9 @@ Pick an option:
   
   
   
-#User Guide
+ # User Guide
+ 
 
-----------------------------------------------
 Let’s start using To Do List application.
 ---------------------------------------------
 -----------------------------------------------
@@ -74,7 +74,7 @@ Pick an option:
 ```
  
 
-####(1) In First step: User by choosing #3 can start creating new Task in To Do List:
+#### (1) In First step: User by choosing #3 can start creating new Task in To Do List:
 
 ```javascript
 
@@ -82,11 +82,8 @@ Pick an option:
   Enter heading of your task: IP Project
 
 ```
- 
 
- 
-
-####(2) By date and time user is adding due date:
+#### (2) By date and time user is adding due date:
 
 ```javascript
 
@@ -100,8 +97,8 @@ Pick an option:
 ```
  
 
-####(2b) If – by mistake User will add date before day when new task is creating – No problem.
-#####User will receive information and will be able to fix date.
+#### (2b) If – by mistake User will add date before day when new task is creating – No problem.
+#### User will receive information and will be able to fix date.
 
 ```javascript
 
@@ -122,7 +119,7 @@ Pick an option:
 
 ```
 
-(3) Next step – choosing Project form list:
+#### (3) Next step – choosing Project form list:
 
 ```javascript
 
@@ -135,7 +132,7 @@ Select Project type from the list: 1 – 5
 ```
  
 
-After adding Project # from the list User is receiving `New Task`
+#### After adding Project # from the list User is receiving `New Task`
 
  ```javascript
 Task added successfully....
@@ -150,7 +147,7 @@ Task added successfully....
 #### (4) By pressing # 5 User can Save all task and leave `ToDoLy application`
 
  ```javascript
-  **Your records are saved. See You next time**
+  Your records are saved. See You next time
   ```
 
 
@@ -159,8 +156,8 @@ Task added successfully....
 ---------------------------------------------------
 ----------------------------------------------------
 
-####First step is same like at the beginning: 
-#####User see `Main Menu` with info about tasks which need to be done and tasks which are already done but not removed from the `To Do List` 
+First step is same like at the beginning: 
+User see `Main Menu` with info about tasks which need to be done and tasks which are already done but not removed from the `To Do List` 
 
  
 Welcome to ToDoLy
@@ -178,7 +175,7 @@ Pick an option:
 
 ```
 
-####(1.1) By pressing # 1 in `Main Menu`, user can see all tasks sorted by `date` 
+#### (1.1) By pressing # 1 in `Main Menu`, user can see all tasks sorted by `date` 
 
  
  ```javascript
@@ -213,7 +210,7 @@ Due date : 20-11-2019 12:30
  ```
 
 
-####(2.1) By pressing # 2 in `Main Menu`, user can see all tasks which are sorted by `project` 
+#### (2.1) By pressing # 2 in `Main Menu`, user can see all tasks which are sorted by `project` 
 
 ```javascript
 
@@ -258,7 +255,7 @@ Due date : 20-11-2019 12:30
 
  ```
 
-####(3) After pressing #4 user will go to `Sub Menu` where user can:
+#### (3) After pressing #4 user will go to `Sub Menu` where user can:
 ```python
 1 - Update
 2 - Mark task as done
@@ -266,8 +263,8 @@ Due date : 20-11-2019 12:30
 4 - Back to Main Menu
 ```
 
-####(4.1.1) Each task can be updated by pressing #1 in `Sub Menu`. System is showing all tasks.
-#####By choosing `taskID` user is updating task. 
+#### (4.1.1) Each task can be updated by pressing #1 in `Sub Menu`. System is showing all tasks.
+#### By choosing `taskID` user is updating task. 
 ```javascript
 
 Following steps from (1) - (3) from **Let’s start using To Do List application.**
@@ -275,8 +272,8 @@ user is updating task
 
 ```
 
-####(4.2.1) When task is done, by pressing #2, user can easy change status from `in progres` till `completed`
-#####By choosing `taskID` user is changing status of task. 
+#### (4.2.1) When task is done, by pressing #2, user can easy change status from `in progres` till `completed`
+#### By choosing `taskID` user is changing status of task. 
 ```javascript
 
 Enter Task Id to Mark As Done : 
@@ -284,13 +281,13 @@ Enter Task Id to Mark As Done :
 id # 8 - Task is set as completed!
 
 ```
-####(4.3.1) Each task can be removed by pressing #3 in `Sub Menu`. System is showing all tasks.
-#####By choosing `taskID` user is removing task from all list. 
+#### (4.3.1) Each task can be removed by pressing #3 in `Sub Menu`. System is showing all tasks.
+By choosing `taskID` user is removing task from all list. 
 ```javascript         
 Enter Task Id to Remove : 
 8
 id # 8 - Task has been removed!
 ```
-####(4.4.1) If user will come to `Sub Menu` by mistake...
-###No problem
+#### (4.4.1) If user will come to `Sub Menu` by mistake...
+#### No problem
 #### Press #4 and will go back to `Main Menu`  
