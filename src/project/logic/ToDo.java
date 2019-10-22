@@ -154,14 +154,10 @@ public class ToDo {
     private String chooseProject (){
 
         int result;
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
 
-            System.out.println("Choose the number : ");
-            String input = scanner.nextLine();
-
-            result = Integer.parseInt(input);
+            result = Utility.takeUserInput("Choose the number : ");
 
             if (result > 0 && result <= Task.projects.length){
                 break;
