@@ -109,7 +109,9 @@ class ToDoTest {
     }
 
     @Test
-    void generateTaskIdk() throws IOException {
+    void generateTaskId() throws IOException {
+
+        //Method is private. Bellow @Test was created for a public method.
 
         throw new UnsupportedOperationException("following test case is for public method");
 
